@@ -1,21 +1,25 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "austin";
-  home.homeDirectory = "/home/austin";
+  home = {
+    username = "austin";
+    homeDirectory = "/home/austin";
 
-  home.packages = with pkgs; [
-    fastfetch
-    zip
-    unzip
-    p7zip
-    ripgrep
-    eza
-    alacritty
-    neovim
-    starship
-    fish
-  ];
+    packages = with pkgs; [
+      fastfetch
+      zip
+      unzip
+      p7zip
+      ripgrep
+      eza
+      alacritty
+      neovim
+      starship
+      fish
+    ];
+
+    stateVersion = "26.05";
+  };
 
   programs.git = {
     enable = true;
@@ -25,6 +29,5 @@
     };
   };
 
-  home.stateVersion = "26.05";
   programs.home-manager.enable = true;
 }

@@ -25,8 +25,6 @@
   networking.hostName = "fw13";
   hardware.bluetooth.enable = true;
   hardware.enableRedistributableFirmware = true;
-  services.power-profiles-daemon.enable = true;
-  services.upower.enable = true;
   time.timeZone = "America/New_York";
 
   i18n = {
@@ -39,6 +37,8 @@
   security.rtkit.enable = true;
 
   services = {
+    power-profiles-daemon.enable = true;
+    upower.enable = true;
     printing.enable = true;
     pipewire = {
       enable = true;
@@ -59,23 +59,25 @@
     wget
   ];
 
-  programs.fish.enable = true;
-  programs.niri.enable = true;
-  programs.noctalia = {
-    enable = true;
-    systemd.enable = true;
-  };
-  programs.noctalia-greeter = {
-    enable = true;
+  programs = {
+    fish.enable = true;
+    niri.enable = true;
+    noctalia = {
+      enable = true;
+      systemd.enable = true;
+    };
+    noctalia-greeter = {
+      enable = true;
 
-    settings = {
-      cursor = {
-        theme = "Bibata-Modern-Ice";
-        size = 24;
-        path = "${pkgs.bibata-cursors}/share/icons";
+      settings = {
+        cursor = {
+          theme = "Bibata-Modern-Ice";
+          size = 24;
+          path = "${pkgs.bibata-cursors}/share/icons";
+        };
+
+        keyboard.layout = "us";
       };
-
-      keyboard.layout = "us";
     };
   };
 

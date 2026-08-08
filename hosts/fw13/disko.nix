@@ -121,9 +121,11 @@
   services.fstrim.enable = true;
 
   # These subvolumes must be mounted early for impermanence and services.
-  fileSystems."/persist".neededForBoot = true;
-  fileSystems."/var/log".neededForBoot = true;
-  fileSystems."/var/lib".neededForBoot = true;
+  fileSystems = {
+    "/persist".neededForBoot = true;
+    "/var/log".neededForBoot = true;
+    "/var/lib".neededForBoot = true;
+  };
 
   # Add these after obtaining the Btrfs swapfile resume offset:
   #
