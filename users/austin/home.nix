@@ -12,22 +12,36 @@
       p7zip
       ripgrep
       eza
-      alacritty
-      neovim
-      starship
-      fish
     ];
+
+    sessionVariables = {
+      TERMINAL = "alacritty";
+    };
 
     stateVersion = "26.05";
   };
 
-  programs.git = {
-    enable = true;
-    settings.user = {
-      name = "austin";
-      email = "austin@austingw.com";
-    };
-  };
+  programs = {
+    alacritty.enable = true;
+    fish.enable = true;
 
-  programs.home-manager.enable = true;
+    git = {
+      enable = true;
+      settings.user = {
+        name = "austin";
+        email = "austin@austingw.com";
+      };
+    };
+
+    home-manager.enable = true;
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
+
+    starship.enable = true;
+  };
 }

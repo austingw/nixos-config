@@ -5,7 +5,7 @@
         type = "disk";
 
         # Replace this with the actual value from /dev/disk/by-id/.
-        device = "/dev/disk/by-id/REPLACE-WITH-YOUR-NVME-ID";
+        device = "/dev/nvme0n1";
 
         content = {
           type = "gpt";

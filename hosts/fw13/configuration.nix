@@ -55,7 +55,7 @@
   environment.systemPackages = with pkgs; [
     git
     curl
-    niri
+    just
     wget
   ];
 
@@ -75,6 +75,7 @@
           size = 24;
           path = "${pkgs.bibata-cursors}/share/icons";
         };
+        session.default = "niri";
 
         keyboard.layout = "us";
       };
