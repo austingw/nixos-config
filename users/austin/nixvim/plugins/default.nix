@@ -1,7 +1,16 @@
 {
   # complex plugin configs get their own files
   imports = [
+    ./cmp.nix
+    ./conform.nix
+    ./copilot-lua.nix
+    ./lint.nix
+    ./lsp.nix
+    ./mini.nix
+    ./neotree.nix
     ./snacks.nix
+    ./treesitter.nix
+    ./which-key.nix
   ];
 
   # plugins using mostly default settings get configured here
@@ -32,7 +41,12 @@
     };
 
     # ui plugins
+    highlight-colors = {
+      enable = true;
+      settings.render = "foreground";
+    };
     sleuth.enable = true;
     todo-comments.enable = true;
+    web-devicons.enable = true;
   };
 }
