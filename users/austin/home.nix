@@ -71,7 +71,7 @@
       vimAlias = true;
 
       imports = [
-        ./nixvim.nix
+        ./nixvim
       ];
     };
 
