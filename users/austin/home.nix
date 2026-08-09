@@ -6,12 +6,13 @@
     homeDirectory = "/home/austin";
 
     packages = with pkgs; [
+      eza
       fastfetch
-      zip
-      unzip
+      nerd-fonts.departure-mono
       p7zip
       ripgrep
-      eza
+      unzip
+      zip
     ];
 
     sessionVariables = {
@@ -22,8 +23,34 @@
   };
 
   programs = {
-    alacritty.enable = true;
-    fish.enable = true;
+    alacritty = {
+      enable = true;
+      settings = {
+        font = {
+          normal = {
+            family = "DepartureMono Nerd Font";
+            style = "Regular";
+          };
+          size = 15;
+        };
+        mouse.hide_when_typing = true;
+      };
+    };
+
+    fish = {
+      enable = true;
+      interactiveShellInit = ''
+        set fish_greeting # Disable greeting
+      '';
+      shellAbbrs = {
+        nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-config#fw13";
+      };
+      shellAliases = {
+        ls = "eza";
+        pn = "pnpm";
+        ":q" = "exit";
+      };
+    };
 
     git = {
       enable = true;
@@ -42,6 +69,130 @@
       vimAlias = true;
     };
 
-    starship.enable = true;
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    zellij = {
+      enable = true;
+      enableFishIntegration = true;
+      layouts = {
+        default = {
+          layout = {
+            _children = [
+              {
+                default_tab_template = {
+                  _children = [
+                    {
+                      pane = {
+                        size = 1;
+                        borderless = true;
+                        plugin.location = "zellij:tab-bar";
+                      };
+                    }
+                    { children = { }; }
+                    {
+                      pane = {
+                        size = 2;
+                        borderless = true;
+                        plugin.location = "zellij:status-bar";
+                      };
+                    }
+                  ];
+                };
+              }
+              {
+                tab = {
+                  _props.name = "fastfetch";
+                  _children = [
+                    {
+                      pane = {
+                        command = "fish";
+                        args = [
+                          "-c"
+                          "fastfetch; exec fish"
+                        ];
+                      };
+                    }
+                  ];
+                };
+              }
+            ];
+          };
+        };
+      };
+      settings = {
+        default_mode = "locked";
+        default_shell = "fish";
+        show_startup_tips = false;
+
+        keybinds = {
+          locked._children = [
+            {
+              bind = {
+                _args = [
+                  "Alt Left"
+                  "Alt h"
+                ];
+                MoveFocusOrTab = [ "Left" ];
+              };
+            }
+            {
+              bind = {
+                _args = [
+                  "Alt Down"
+                  "Alt j"
+                ];
+                MoveFocus = [ "Down" ];
+              };
+            }
+            {
+              bind = {
+                _args = [
+                  "Alt Up"
+                  "Alt k"
+                ];
+                MoveFocus = [ "Up" ];
+              };
+            }
+            {
+              bind = {
+                _args = [
+                  "Alt Right"
+                  "Alt l"
+                ];
+                MoveFocusOrTab = [ "Right" ];
+              };
+            }
+            {
+              bind = {
+                _args = [ "Alt n" ];
+                NewPane = { };
+              };
+            }
+            {
+              bind = {
+                _args = [ "Alt f" ];
+                ToggleFloatingPanes = { };
+              };
+            }
+          ];
+          shared._children = [
+            {
+              bind = {
+                _args = [ "Alt N" ];
+                NewTab = { };
+              };
+            }
+          ];
+        };
+      };
+    };
+
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 }
