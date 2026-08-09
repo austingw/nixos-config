@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
+  imports = [
+    inputs.nixvim.homeModules.nixvim
+  ];
   home = {
     username = "austin";
     homeDirectory = "/home/austin";
@@ -62,11 +65,14 @@
 
     home-manager.enable = true;
 
-    neovim = {
+    nixvim = {
       enable = true;
-      defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+
+      imports = [
+        ./nixvim.nix
+      ];
     };
 
     starship = {
