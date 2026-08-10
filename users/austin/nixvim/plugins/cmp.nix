@@ -2,8 +2,6 @@
   plugins.cmp = {
     enable = true;
 
-    lazyLoad.settings.event = "InsertEnter";
-
     settings = {
       snippet.expand = ''
         function(args)

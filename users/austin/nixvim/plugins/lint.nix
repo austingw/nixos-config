@@ -12,11 +12,6 @@
   plugins.lint = {
     enable = true;
 
-    lazyLoad.settings.event = [
-      "BufReadPost"
-      "BufNewFile"
-    ];
-
     # Installs linters listed statically in lintersByFt.
     autoInstall.enable = true;
 

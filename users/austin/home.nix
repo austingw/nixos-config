@@ -34,6 +34,11 @@
     alacritty = {
       enable = true;
       settings = {
+        window = {
+          blur = true;
+          decorations = "None";
+          opacity = 0.9;
+        };
         font = {
           normal = {
             family = "DepartureMono Nerd Font";
