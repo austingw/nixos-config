@@ -28,7 +28,6 @@
       lua = [ "luacheck" ];
       markdown = [ "vale" ];
       nix = [ "statix" ];
-      python = [ "ruff" ];
       typescript = [ "eslint" ];
       typescriptreact = [ "eslint" ];
     };
@@ -44,36 +43,64 @@
 
       callback = lib.nixvim.mkRaw ''
         function(args)
-          local lint = require("lint")
-          local js_filetypes = {
-            javascript = true,
-            javascriptreact = true,
-            typescript = true,
-            typescriptreact = true,
-          }
+          local buf = args.buf
 
-          local names_override
-          local cwd
+          if not vim.api.nvim_buf_is_valid(buf) then
+            return
+          end
 
-          if js_filetypes[vim.bo[args.buf].filetype] then
-            cwd = vim.fs.root(args.buf, {
+          vim.api.nvim_buf_call(buf, function()
+            local lint = require("lint")
+            local js_filetypes = {
+              javascript = true,
+              javascriptreact = true,
+              typescript = true,
+              typescriptreact = true,
+            }
+            local js_linters = {
+              "eslint",
+              "biomejs",
+              "oxlint",
+            }
+
+            local filetype = vim.bo[buf].filetype
+
+            if not js_filetypes[filetype] then
+              -- Clear JS diagnostics if the buffer's filetype changed.
+              for _, name in ipairs(js_linters) do
+                vim.diagnostic.reset(lint.get_namespace(name), buf)
+              end
+
+              lint.try_lint()
+              return
+            end
+
+            local selected = "eslint"
+            local cwd = vim.fs.root(buf, {
               { "biome.json", "biome.jsonc" },
             })
 
             if cwd then
-              names_override = { "biomejs" }
+              selected = "biomejs"
             else
-              cwd = vim.fs.root(args.buf, {
+              cwd = vim.fs.root(buf, {
                 { ".oxlintrc.json", "oxlint.config.ts" },
               })
 
               if cwd then
-                names_override = { "oxlint" }
+                selected = "oxlint"
               end
             end
-          end
 
-          lint.try_lint(names_override, { cwd = cwd })
+            -- Each nvim-lint linter has a separate diagnostic namespace.
+            for _, name in ipairs(js_linters) do
+              if name ~= selected then
+                vim.diagnostic.reset(lint.get_namespace(name), buf)
+              end
+            end
+
+            lint.try_lint({ selected }, { cwd = cwd })
+          end)
         end
       '';
     };

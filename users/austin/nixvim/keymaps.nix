@@ -126,9 +126,9 @@
     }
     {
       mode = "n";
-      key = "<leader>g";
+      key = "<leader>gg";
       action = "<cmd>Neogit<CR>";
-      options.desc = "Open Neo[G]it";
+      options.desc = "Open Neogit";
     }
     {
       mode = "n";

@@ -2,6 +2,7 @@
 
 {
   autoGroups = {
+    checktime = { };
     highlight_yank = { };
     last_location = { };
     resize_splits = { };
@@ -15,6 +16,22 @@
       callback = lib.nixvim.mkRaw ''
         function()
           vim.hl.on_yank()
+        end
+      '';
+    }
+    {
+      event = [
+        "FocusGained"
+        "TermClose"
+        "TermLeave"
+      ];
+      group = "checktime";
+      desc = "Check whether files changed externally";
+      callback = lib.nixvim.mkRaw ''
+        function()
+          if vim.bo.buftype ~= "nofile" then
+            vim.cmd.checktime()
+          end
         end
       '';
     }

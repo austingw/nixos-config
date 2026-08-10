@@ -57,6 +57,7 @@
     curl
     just
     wget
+    wl-clipboard
   ];
 
   programs = {

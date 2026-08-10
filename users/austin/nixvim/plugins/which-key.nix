@@ -7,28 +7,20 @@
 
       spec = [
         {
-          __unkeyed-1 = "<leader>c";
-          group = "[C]ode";
-          mode = [
-            "n"
-            "x"
-          ];
+          __unkeyed-1 = "<leader>f";
+          group = "[F]iles";
         }
         {
-          __unkeyed-1 = "<leader>d";
-          group = "[D]ocument";
-        }
-        {
-          __unkeyed-1 = "<leader>r";
-          group = "[R]ename";
+          __unkeyed-1 = "<leader>g";
+          group = "[G]it";
         }
         {
           __unkeyed-1 = "<leader>s";
           group = "[S]earch";
         }
         {
-          __unkeyed-1 = "<leader>w";
-          group = "[W]orkspace";
+          __unkeyed-1 = "<leader>u";
+          group = "[U]I";
         }
       ];
     };

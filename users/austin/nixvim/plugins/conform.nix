@@ -33,7 +33,11 @@ in
         json = jsFormatters;
         lua = [ "stylua" ];
         nix = [ "nixfmt" ];
-        python = [ "ruff" ];
+        python = [
+          "ruff_fix"
+          "ruff_organize_imports"
+          "ruff_format"
+        ];
         svelte = [ "prettierd" ];
         typescript = jsFormatters;
         typescriptreact = jsFormatters;

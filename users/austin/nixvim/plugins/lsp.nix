@@ -49,7 +49,7 @@
 
         vim.api.nvim_clear_autocmds({
           group = group,
-          buffer = bufnr,
+          buf = bufnr,
         })
 
         vim.api.nvim_create_autocmd({
@@ -57,7 +57,7 @@
           "CursorHoldI",
         }, {
           group = group,
-          buffer = bufnr,
+          buf = bufnr,
           callback = vim.lsp.buf.document_highlight,
         })
 
@@ -66,13 +66,13 @@
           "CursorMovedI",
         }, {
           group = group,
-          buffer = bufnr,
+          buf = bufnr,
           callback = vim.lsp.buf.clear_references,
         })
 
         vim.api.nvim_create_autocmd("LspDetach", {
           group = group,
-          buffer = bufnr,
+          buf = bufnr,
           callback = function()
             vim.schedule(function()
               local clients = vim.lsp.get_clients({
@@ -84,7 +84,7 @@
                 vim.lsp.buf.clear_references()
                 vim.api.nvim_clear_autocmds({
                   group = group,
-                  buffer = bufnr,
+                  buf = bufnr,
                 })
               end
             end)
