@@ -14,6 +14,7 @@
       fastfetch
       nerd-fonts.departure-mono
       nodejs
+      opencode
       p7zip
       pnpm
       ripgrep
