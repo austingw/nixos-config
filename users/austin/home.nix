@@ -9,12 +9,16 @@
     homeDirectory = "/home/austin";
 
     packages = with pkgs; [
+      brave
       eza
       fastfetch
       nerd-fonts.departure-mono
+      nodejs
       p7zip
+      pnpm
       ripgrep
       unzip
+      uv
       zip
     ];
 
