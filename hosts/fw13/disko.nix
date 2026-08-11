@@ -129,6 +129,6 @@
 
   # Add these after obtaining the Btrfs swapfile resume offset:
   #
-  # boot.resumeDevice = "/dev/mapper/cryptroot";
-  # boot.kernelParams = [ "resume_offset=REPLACE_WITH_OFFSET" ];
+  boot.resumeDevice = "/dev/mapper/cryptroot";
+  boot.kernelParams = [ "resume_offset=533760" ];
 }
