@@ -12,6 +12,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "";
+      inputs.home-manager.follows = "";
+    };
     nixvim = {
       url = "github:nix-community/nixvim";
     };
@@ -33,6 +38,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           inputs.disko.nixosModules.disko
+          inputs.impermanence.nixosModules.impermanence
 
           ./hosts/fw13/configuration.nix
 

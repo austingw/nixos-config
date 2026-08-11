@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko.nix
+    ./impermanence.nix
     ../../users/austin/nixos.nix
 
     inputs.noctalia-greeter.nixosModules.default
