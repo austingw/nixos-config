@@ -42,7 +42,6 @@
         window = {
           blur = true;
           decorations = "None";
-          opacity = 0.9;
         };
         font = {
           normal = {

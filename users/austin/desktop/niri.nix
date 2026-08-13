@@ -339,11 +339,26 @@
             {
               draw-border-with-background = false;
             }
+            { opacity = 0.9; }
+
+            {
+              background-effect = {
+                blur = true;
+              };
+            }
           ];
         }
         {
           window-rule._children = [
-            { geometry-corner-radius = 12; }
+            { match._props.app-id = "brave-browser"; }
+
+            { open-maximized = true; }
+            { opacity = 1.0; }
+          ];
+        }
+        {
+          window-rule._children = [
+            { geometry-corner-radius = 0; }
             { clip-to-geometry = true; }
           ];
         }
