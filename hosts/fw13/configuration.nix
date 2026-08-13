@@ -52,6 +52,21 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    keyd = {
+      enable = true;
+      keyboards.framework = {
+        ids = [ "0001:0001" ];
+        settings.main = {
+          capslock = "esc";
+          esc = "capslock";
+        };
+      };
+    };
+    displayManager.dms-greeter = {
+      enable = true;
+      compositor.name = "niri";
+      configHome = "/home/austin";
+    };
   };
 
   nixpkgs.config = {
