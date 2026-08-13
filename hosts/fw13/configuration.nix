@@ -91,7 +91,14 @@
         dankterminaltheme.enable = true;
       };
     };
-
+    dsearch = {
+      enable = true;
+      package = pkgs.dsearch;
+      systemd = {
+        enable = true;
+        target = "default.target";
+      };
+    };
   };
 
   system.stateVersion = "26.05";

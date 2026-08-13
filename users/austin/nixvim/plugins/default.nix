@@ -13,8 +13,10 @@
     ./which-key.nix
   ];
 
-  colorschemes.gruvbox-material-nvim.enable = true;
-
+  colorschemes.nightfox = {
+    enable = true;
+    flavor = "duskfox";
+  };
   # plugins using mostly default settings get configured here
   plugins = {
     # lazy loading

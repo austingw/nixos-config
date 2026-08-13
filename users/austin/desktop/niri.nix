@@ -4,6 +4,10 @@
 
   wayland.windowManager.niri = {
     enable = true;
+    extraConfig = ''
+      // Keep niri's compositor colors in sync with the active DMS theme.
+      include optional=true "dms/colors.kdl"
+    '';
 
     settings = {
       input = {
@@ -26,7 +30,7 @@
         default-column-width.proportion = 0.5;
 
         focus-ring = {
-          width = 3;
+          width = 2;
           active-color = "#7fc8ff";
           inactive-color = "#505050";
         };
@@ -340,10 +344,20 @@
               draw-border-with-background = false;
             }
             { opacity = 0.9; }
-
             {
               background-effect = {
                 blur = true;
+              };
+            }
+          ];
+        }
+        {
+          window-rule._children = [
+            { match._props.is-active = false; }
+            { opacity = .6; }
+            {
+              background-effect = {
+                saturation = 0.0;
               };
             }
           ];

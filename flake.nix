@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     disko = {
       url = "github:nix-community/disko/latest";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +40,7 @@
         modules = [
           inputs.disko.nixosModules.disko
           inputs.impermanence.nixosModules.impermanence
+          inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
 
           ./hosts/fw13/configuration.nix
 

@@ -97,6 +97,21 @@
     zellij = {
       enable = true;
       enableFishIntegration = true;
+      themes = {
+        duskfox.themes.duskfox = {
+          bg = "#433c59";
+          fg = "#e0def4";
+          red = "#eb6f92";
+          green = "#a3be8c";
+          blue = "#569fba";
+          yellow = "#f6c177";
+          magenta = "#c4a7e7";
+          orange = "#ea9a97";
+          cyan = "#9ccfd8";
+          black = "#373354";
+          white = "#cdcbe0";
+        };
+      };
       layouts = {
         default = {
           layout = {
@@ -146,7 +161,7 @@
         default_mode = "locked";
         default_shell = "fish";
         show_startup_tips = false;
-        theme = "gruvbox-dark";
+        theme = "duskfox";
 
         keybinds = {
           locked._children = [
