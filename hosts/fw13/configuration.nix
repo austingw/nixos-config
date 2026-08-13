@@ -12,7 +12,7 @@
     ./impermanence.nix
     ../../users/austin/nixos.nix
 
-    inputs.noctalia-greeter.nixosModules.default
+    inputs.dms-plugin-registry.nixosModules.default
   ];
 
   boot.loader = {
@@ -69,24 +69,14 @@
   programs = {
     fish.enable = true;
     niri.enable = true;
-    noctalia = {
+    dms-shell = {
       enable = true;
       systemd.enable = true;
-    };
-    noctalia-greeter = {
-      enable = true;
-
-      settings = {
-        cursor = {
-          theme = "Bibata-Modern-Ice";
-          size = 24;
-          path = "${pkgs.bibata-cursors}/share/icons";
-        };
-        session.default = "niri";
-
-        keyboard.layout = "us";
+      plugins = {
+        dankterminaltheme.enable = true;
       };
     };
+
   };
 
   system.stateVersion = "26.05";

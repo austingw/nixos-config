@@ -13,6 +13,8 @@
     ./which-key.nix
   ];
 
+  colorschemes.gruvbox-material-nvim.enable = true;
+
   # plugins using mostly default settings get configured here
   plugins = {
     # lazy loading

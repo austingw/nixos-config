@@ -3,6 +3,7 @@
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
+    ./desktop
   ];
   home = {
     username = "austin";
@@ -15,6 +16,7 @@
       nerd-fonts.departure-mono
       nodejs
       opencode
+      papirus-icon-theme
       p7zip
       pnpm
       ripgrep
@@ -34,6 +36,9 @@
     alacritty = {
       enable = true;
       settings = {
+        general.import = [
+          "~/.config/alacritty/dank-theme.toml"
+        ];
         window = {
           blur = true;
           decorations = "None";
@@ -44,7 +49,7 @@
             family = "DepartureMono Nerd Font";
             style = "Regular";
           };
-          size = 15;
+          size = 14;
         };
         mouse.hide_when_typing = true;
       };
@@ -142,6 +147,7 @@
         default_mode = "locked";
         default_shell = "fish";
         show_startup_tips = false;
+        theme = "gruvbox-dark";
 
         keybinds = {
           locked._children = [
