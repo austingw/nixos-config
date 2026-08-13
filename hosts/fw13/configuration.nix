@@ -15,8 +15,13 @@
     inputs.noctalia-greeter.nixosModules.default
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 10;
+    };
+  };
 
   nix.settings.experimental-features = [
     "nix-command"
