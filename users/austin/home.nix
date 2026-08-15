@@ -13,6 +13,7 @@
       brave
       eza
       fastfetch
+      inputs.sidra.packages.${pkgs.stdenv.hostPlatform.system}.default
       nerd-fonts.departure-mono
       nodejs
       opencode

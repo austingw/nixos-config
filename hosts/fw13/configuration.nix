@@ -15,12 +15,15 @@
     inputs.dms-plugin-registry.nixosModules.default
   ];
 
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 10;
+  boot = {
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
     };
+    kernelParams = [ "amdgpu.sg_display=0" ];
   };
 
   nix.settings.experimental-features = [

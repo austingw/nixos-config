@@ -25,6 +25,9 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+    sidra = {
+      url = "github:wimpysworld/sidra";
+    };
   };
 
   outputs =
