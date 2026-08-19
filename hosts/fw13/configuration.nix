@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./disko.nix
     ./impermanence.nix
+    ../common.nix
     ../../users/austin/nixos.nix
 
     inputs.dms-plugin-registry.nixosModules.default
@@ -26,22 +27,7 @@
     kernelParams = [ "amdgpu.sg_display=0" ];
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  networking.networkmanager.enable = true;
-  networking.hostName = "fw13";
   hardware.bluetooth.enable = true;
-  hardware.enableRedistributableFirmware = true;
-  time.timeZone = "America/New_York";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ALL = "en_US.UTF-8";
-    };
-  };
 
   security.rtkit.enable = true;
 
@@ -72,20 +58,11 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
   environment.systemPackages = with pkgs; [
-    git
-    curl
-    just
-    wget
     wl-clipboard
   ];
 
   programs = {
-    fish.enable = true;
     niri.enable = true;
     dms-shell = {
       enable = true;

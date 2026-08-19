@@ -25,39 +25,36 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
-    sidra = {
-      url = "github:wimpysworld/sidra";
-    };
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      home-manager,
-      ...
-    }:
+    inputs:
+    let
+      mkNixosSys = import ./lib/mk-nixos-sys.nix {
+        inherit inputs;
+      };
+    in
     {
-      nixosConfigurations.fw13 = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          inputs.disko.nixosModules.disko
-          inputs.impermanence.nixosModules.impermanence
-          inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+      nixosConfigurations = {
+        fw13 = mkNixosSys {
+          hostName = "fw13";
+          modules = [
+            inputs.disko.nixosModules.disko
+            inputs.impermanence.nixosModules.impermanence
+            inputs.nixos-hardware.nixosModules.framework-amd-ai-300-series
+            ./hosts/fw13/configuration.nix
+          ];
 
-          ./hosts/fw13/configuration.nix
+        };
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.austin = import ./users/austin/home.nix;
-            };
-          }
-        ];
-
+        homelab = mkNixosSys {
+          hostName = "homelab";
+          modules = [
+            inputs.disko.nixosModules.disko
+            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
+            ./hosts/homelab/configuration.nix
+          ];
+        };
       };
     };
 }

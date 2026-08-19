@@ -1,67 +1,47 @@
-{ inputs, pkgs, ... }:
+{
+  hostName,
+  inputs,
+  pkgs,
+  ...
+}:
 
+let
+  hostModules = {
+    fw13 = ./hosts/fw13.nix;
+    homelab = ./hosts/homelab.nix;
+  };
+in
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    ./desktop
+    hostModules.${hostName}
   ];
   home = {
     username = "austin";
     homeDirectory = "/home/austin";
 
     packages = with pkgs; [
-      brave
       eza
       fastfetch
-      inputs.sidra.packages.${pkgs.stdenv.hostPlatform.system}.default
-      nerd-fonts.departure-mono
       nodejs
-      opencode
-      papirus-icon-theme
       p7zip
       pnpm
       ripgrep
       unzip
-      uv
       zip
     ];
-
-    sessionVariables = {
-      TERMINAL = "alacritty";
-    };
 
     stateVersion = "26.05";
   };
 
   programs = {
-    alacritty = {
-      enable = true;
-      settings = {
-        general.import = [
-          "~/.config/alacritty/dank-theme.toml"
-        ];
-        window = {
-          blur = true;
-          decorations = "None";
-        };
-        font = {
-          normal = {
-            family = "DepartureMono Nerd Font";
-            style = "Regular";
-          };
-          size = 14;
-        };
-        mouse.hide_when_typing = true;
-      };
-    };
-
     fish = {
       enable = true;
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
       '';
       shellAbbrs = {
-        nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-config#fw13";
+        nrs = "sudo nixos-rebuild switch --flake $HOME/nixos-config#${hostName}";
       };
       shellAliases = {
         ls = "eza";
