@@ -5,16 +5,10 @@
   ...
 }:
 
-let
-  hostModules = {
-    fw13 = ./hosts/fw13.nix;
-    homelab = ./hosts/homelab.nix;
-  };
-in
 {
   imports = [
     inputs.nixvim.homeModules.nixvim
-    hostModules.${hostName}
+    ./hosts/${hostName}
   ];
   home = {
     username = "austin";
