@@ -81,5 +81,7 @@
     };
   };
 
+  users.users.austin.hashedPasswordFile = "/persist/secrets/austin-password-hash";
+
   system.stateVersion = "26.05";
 }
