@@ -51,7 +51,6 @@
           hostName = "homelab";
           modules = [
             inputs.disko.nixosModules.disko
-            inputs.nixos-hardware.nixosModules.lenovo-thinkpad-e14-amd
             ./hosts/homelab/configuration.nix
           ];
         };
