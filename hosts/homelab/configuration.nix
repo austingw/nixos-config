@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./hardware-configuration.nix
     ./disko.nix
     ../common.nix
     ../../users/austin/nixos.nix
@@ -15,10 +16,7 @@
     };
   };
 
-  networking.firewall = {
-    enable = true;
-    interfaces.tailscale0.allowedTCPPorts = [ 22 ];
-  };
+  networking.firewall.enable = true;
 
   services = {
     fstrim.enable = true;

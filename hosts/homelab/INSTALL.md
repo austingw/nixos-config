@@ -104,6 +104,25 @@ lsblk -d -o NAME,PATH,MODEL,SERIAL,SIZE,TRAN "$(readlink -f "$DISK")"
 
 Confirm that this is the internal SSD before continuing.
 
+Record the same persistent path in the Disko configuration so future direct
+Disko operations cannot fall back to the unstable `/dev/nvme0n1` name:
+
+```bash
+printf '%s\n' "$DISK"
+nvim hosts/homelab/disko.nix
+```
+
+Set `disko.devices.disk.main.device` to the printed value:
+
+```nix
+device = "/dev/disk/by-id/REPLACE-WITH-WHOLE-DISK-ID";
+```
+
+Whole-disk IDs are hardware identifiers, not credentials, and are safe to
+commit publicly. Model-based IDs may disclose the SSD model and serial number.
+Keep the explicit `--disk main "$DISK"` argument during installation as an
+additional guard.
+
 ## 7. Create the Password Hash
 
 Generate a root-owned yescrypt hash using the repository script:
