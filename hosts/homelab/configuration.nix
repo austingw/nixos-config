@@ -37,10 +37,6 @@
       };
     };
 
-    tailscale = {
-      enable = true;
-      openFirewall = true;
-    };
   };
 
   systemd.tmpfiles.rules = [
