@@ -10,6 +10,11 @@
     '';
 
     settings = {
+      cursor = {
+        xcursor-theme = "Simp1e-Mix-Dark";
+        xcursor-size = 24;
+      };
+
       input = {
         keyboard.xkb = { };
         touchpad = {
@@ -61,7 +66,7 @@
             "toggle"
           ];
         };
-        "Mod+N" = {
+        "Mod+I" = {
           _props.hotkey-overlay-title = "Notification Center";
           spawn = [
             "dms"
@@ -242,10 +247,10 @@
         "Mod+Ctrl+Shift+L".move-column-to-monitor-right = { };
 
         # Workspaces.
-        "Mod+Down".focus-workspace-down = { };
-        "Mod+Up".focus-workspace-up = { };
-        "Mod+Shift+Down".move-column-to-workspace-down = { };
-        "Mod+Shift+Up".move-column-to-workspace-up = { };
+        "Mod+N".focus-workspace-down = { };
+        "Mod+P".focus-workspace-up = { };
+        "Mod+Shift+N".move-column-to-workspace-down = { };
+        "Mod+Shift+P".move-column-to-workspace-up = { };
 
         "Mod+WheelScrollDown" = {
           _props.cooldown-ms = 150;
@@ -319,7 +324,7 @@
         };
         "Mod+Shift+E".quit = { };
         "Ctrl+Alt+Delete".quit = { };
-        "Mod+Shift+P".power-off-monitors = { };
+        "Mod+Shift+O".power-off-monitors = { };
         "Mod+Shift+Slash".show-hotkey-overlay = { };
       };
 
