@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko.nix
+    ./pihole.nix
     ../common.nix
     ../../users/austin/nixos.nix
   ];
