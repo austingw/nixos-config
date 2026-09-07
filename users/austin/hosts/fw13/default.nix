@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
+
     ./dms.nix
     ./icons.nix
     ./niri.nix
@@ -9,6 +10,7 @@
 
   home = {
     packages = with pkgs; [
+      inputs.custom-packages.packages.${pkgs.stdenv.hostPlatform.system}.nuvio
       brave
       nerd-fonts.departure-mono
       opencode
