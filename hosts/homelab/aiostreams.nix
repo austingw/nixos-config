@@ -10,9 +10,7 @@ in
     containers.aiostreams = {
       image = "ghcr.io/viren070/aiostreams:latest";
 
-      ports = [
-        "127.0.0.1:3000:3000"
-      ];
+      extraOptions = [ "--network=host" ];
 
       volumes = [
         "/var/lib/aiostreams:/app/data"
