@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./aiostreams.nix
     ./hardware-configuration.nix
     ./disko.nix
     ./pihole.nix
