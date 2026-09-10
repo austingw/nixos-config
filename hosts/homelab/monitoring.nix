@@ -32,4 +32,29 @@
       PORT = "3002";
     };
   };
+
+  virtualisation.oci-containers.containers.dozzle = {
+    image = "amir20/dozzle:v10.10.0@sha256:2875e3c1f31f2244ee99d6067b53852b30666b3e2fb293d179bc8be94b1da5eb";
+
+    ports = [
+      "127.0.0.1:3003:8080"
+    ];
+
+    volumes = [
+      "/var/lib/dozzle:/data"
+      "/var/run/docker.sock:/var/run/docker.sock:ro"
+    ];
+
+    environment = {
+      DOZZLE_AUTH_PROVIDER = "forward-proxy";
+      DOZZLE_AUTH_HEADER_USER = "Tailscale-User-Login";
+      DOZZLE_AUTH_HEADER_EMAIL = "Tailscale-User-Login";
+      DOZZLE_AUTH_HEADER_NAME = "Tailscale-User-Name";
+
+      DOZZLE_ENABLE_ACTIONS = "false";
+      DOZZLE_ENABLE_SHELL = "false";
+      DOZZLE_ENABLE_MCP = "false";
+      DOZZLE_NO_ANALYTICS = "true";
+    };
+  };
 }
