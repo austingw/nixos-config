@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   inputs,
   ...
@@ -24,10 +25,16 @@
         configurationLimit = 10;
       };
     };
-    kernelParams = [ "amdgpu.sg_display=0" ];
+    kernelParams = lib.mkAfter [
+      "amdgpu.dcdebugmask=0x410"
+      "amdgpu.sg_display=0"
+    ];
   };
 
   hardware.bluetooth.enable = true;
+  hardware.graphics = {
+    enable32Bit = true;
+  };
 
   security.rtkit.enable = true;
 
