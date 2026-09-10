@@ -56,5 +56,9 @@
       DOZZLE_ENABLE_MCP = "false";
       DOZZLE_NO_ANALYTICS = "true";
     };
+
+    systemd.tmpfiles.rules = [
+      "d /var/lib/dozzle 0750 root root -"
+    ];
   };
 }

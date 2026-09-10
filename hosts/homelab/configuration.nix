@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ./monitoring.nix
     ./pihole.nix
+    ./tailscale.nix
 
     ../common.nix
     ../../users/austin/nixos.nix
