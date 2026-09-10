@@ -24,6 +24,9 @@
 
   systemd.services.beszel-agent.unitConfig.ConditionPathExists =
     "/var/lib/nixos/secrets/beszel-agent.env";
+  systemd.tmpfiles.rules = [
+    "d /var/lib/dozzle 0750 root root -"
+  ];
 
   services.uptime-kuma = {
     enable = true;
@@ -57,8 +60,5 @@
       DOZZLE_NO_ANALYTICS = "true";
     };
 
-    systemd.tmpfiles.rules = [
-      "d /var/lib/dozzle 0750 root root -"
-    ];
   };
 }
