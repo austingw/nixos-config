@@ -3,9 +3,11 @@
 {
   imports = [
     ./aiostreams.nix
-    ./hardware-configuration.nix
     ./disko.nix
+    ./hardware-configuration.nix
+    ./monitoring.nix
     ./pihole.nix
+
     ../common.nix
     ../../users/austin/nixos.nix
   ];
@@ -18,7 +20,10 @@
     };
   };
 
-  networking.firewall.enable = true;
+  networking.firewall = {
+    enable = true;
+    interfaces.tailscale0.allowedTCPPorts = [ 22 ];
+  };
 
   services = {
     fstrim.enable = true;
