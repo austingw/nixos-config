@@ -25,7 +25,7 @@ in
       ];
 
       environment = {
-        BASE_URL = "https://homelab.stoat-wyvern.ts.net";
+        BASE_URL = "https://aio.stoat-wyvern.ts.net";
         DATABASE_URI = "sqlite://./data/db.sqlite";
         DISK_CACHE_DIR = "/app/cache";
         AIOSTREAMS_AUTH_REQUIRED = "true";
