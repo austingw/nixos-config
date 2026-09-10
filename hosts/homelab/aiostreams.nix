@@ -1,8 +1,3 @@
-{ config, lib, ... }:
-
-let
-  tailscale = lib.getExe config.services.tailscale.package;
-in
 {
   virtualisation.oci-containers = {
     backend = "docker";
@@ -41,28 +36,4 @@ in
     "d /var/lib/aiostreams 0750 root root -"
     "d /var/cache/aiostreams 0750 root root -"
   ];
-
-  systemd.services.tailscale-serve-aiostreams = {
-    description = "Expose AIOStreams through Tailscale Serve";
-    wantedBy = [ "multi-user.target" ];
-    wants = [
-      "docker-aiostreams.service"
-      "network-online.target"
-      "tailscaled.service"
-    ];
-    after = [
-      "docker-aiostreams.service"
-      "network-online.target"
-      "tailscaled.service"
-    ];
-
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "${tailscale} serve --bg --yes --https=443 http://127.0.0.1:3000";
-      ExecStop = "-${tailscale} serve --https=443 off";
-      Restart = "on-failure";
-      RestartSec = "5s";
-    };
-  };
 }
