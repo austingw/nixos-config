@@ -5,6 +5,5 @@
     btop
     dnsutils
     jq
-    nodePackages.pi-web
   ];
 }
