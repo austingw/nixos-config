@@ -65,6 +65,10 @@
       ];
     };
 
+    pi-coding-agent = {
+      enable = true;
+    };
+
     starship = {
       enable = true;
       enableFishIntegration = true;
