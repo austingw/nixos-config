@@ -17,6 +17,7 @@
       opencode
       qbz
       uv
+      vlc
     ];
 
     sessionVariables = {
