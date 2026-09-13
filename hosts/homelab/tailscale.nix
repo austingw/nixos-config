@@ -24,6 +24,11 @@ let
       target = "http://127.0.0.1:3003";
       unit = "docker-dozzle.service";
     }
+    {
+      name = "homepage";
+      target = "http://127.0.0.1:3333";
+      unit = "homepage-dashboard.service";
+    }
 
   ];
 

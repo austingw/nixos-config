@@ -5,6 +5,7 @@
     ./aiostreams.nix
     ./disko.nix
     ./hardware-configuration.nix
+    ./homepage.nix
     ./monitoring.nix
     ./pihole.nix
     ./tailscale.nix
