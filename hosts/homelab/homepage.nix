@@ -8,6 +8,13 @@
       title = "Austin's Homelab";
       description = "My homelab";
 
+      background = {
+        image = "https://wallpapercave.com/wp/wp12329545.png";
+        blur = "sm";
+        saturate = 50;
+        brightness = 50;
+        opacity = 50;
+      };
       statusStyle = "dot";
       useEqualHeights = true;
     };
