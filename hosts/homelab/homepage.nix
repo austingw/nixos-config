@@ -26,6 +26,26 @@
       useEqualHeights = true;
     };
 
+    widgets = [
+      {
+        resources = {
+          cpu = true;
+          disk = "/";
+          memory = true;
+          uptime = true;
+          network = "enp2s0";
+        };
+      }
+      {
+        search = {
+          provider = "google";
+          focus = true;
+          showSearchSuggestions = true;
+          target = "_blank";
+        };
+      }
+    ];
+
     services = [
       {
         Applications = [
@@ -62,7 +82,12 @@
               };
             };
           }
-
+          {
+            Dozzle = {
+              href = "https://dozzle.stoat-wyvern.ts.net";
+              description = "Container logs";
+            };
+          }
           {
             "Uptime Kuma" = {
               href = "https://kuma.stoat-wyvern.ts.net";
@@ -71,7 +96,7 @@
               widget = {
                 type = "uptimekuma";
                 url = "http://127.0.0.1:3002";
-                slug = "homelab";
+                slug = "hl";
                 fields = [
                   "up"
                   "down"
@@ -79,13 +104,6 @@
                   "incident"
                 ];
               };
-            };
-          }
-
-          {
-            Dozzle = {
-              href = "https://dozzle.stoat-wyvern.ts.net";
-              description = "Container logs";
             };
           }
         ];
@@ -132,27 +150,5 @@
         ];
       }
     ];
-
-    widgets = [
-      {
-        resources = {
-          label = "Homelab";
-          cpu = true;
-          disk = "/";
-          memory = true;
-          uptime = true;
-          network = "enp2s0";
-        };
-      }
-      {
-        search = {
-          provider = "google";
-          focus = true;
-          showSearchSuggestions = true;
-          target = "_blank";
-        };
-      }
-    ];
-
   };
 }
