@@ -11,5 +11,21 @@
       statusStyle = "dot";
       useEqualHeights = true;
     };
+
+    widgets = [
+      {
+        resources = {
+          cpu = true;
+          disk = "/";
+          memory = true;
+        };
+      }
+      {
+        search = {
+          provider = "duckduckgo";
+          target = "_blank";
+        };
+      }
+    ];
   };
 }
