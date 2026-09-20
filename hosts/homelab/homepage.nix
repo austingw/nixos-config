@@ -8,10 +8,12 @@
       title = "Austin's Homelab";
       description = "My homelab";
 
+      color = "emerald";
+      theme = "dark";
       background = {
         image = "https://wallpapercave.com/wp/wp12329545.png";
-        blur = "sm";
-        saturate = 50;
+        blur = "xl";
+        saturate = 0;
         brightness = 50;
         opacity = 50;
       };
@@ -29,7 +31,9 @@
       }
       {
         search = {
-          provider = "duckduckgo";
+          provider = "google";
+          focus = true;
+          showSearchSuggestions = true;
           target = "_blank";
         };
       }
