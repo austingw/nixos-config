@@ -28,6 +28,9 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
+    pi = {
+      url = "github:lukasl-dev/pi.nix";
+    };
   };
 
   outputs =

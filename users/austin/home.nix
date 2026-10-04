@@ -9,6 +9,7 @@
   imports = [
     inputs.nixvim.homeModules.nixvim
     ./hosts/${hostName}
+    ./pi
   ];
   home = {
     username = "austin";
@@ -16,7 +17,9 @@
 
     packages = with pkgs; [
       eza
+      fff
       fastfetch
+      ketch
       nodejs
       p7zip
       pnpm
@@ -63,10 +66,6 @@
       imports = [
         ./nixvim
       ];
-    };
-
-    pi-coding-agent = {
-      enable = true;
     };
 
     starship = {
