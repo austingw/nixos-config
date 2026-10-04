@@ -28,6 +28,8 @@
       zip
     ];
 
+    sessionVariables.KETCH_CONFIG = "/persist/secrets/ketch.json"; # secret due to brave api key
+
     stateVersion = "26.05";
   };
 
