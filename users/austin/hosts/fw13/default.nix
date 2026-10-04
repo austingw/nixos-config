@@ -12,6 +12,7 @@
     packages = with pkgs; [
       inputs.custom-packages.packages.${pkgs.stdenv.hostPlatform.system}.nuvio
 
+      bazecor
       brave
       nerd-fonts.departure-mono
       opencode
