@@ -15,7 +15,6 @@
       brave
       nerd-fonts.departure-mono
       opencode
-      qbz
       uv
       vlc
     ];
