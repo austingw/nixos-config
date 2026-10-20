@@ -116,7 +116,7 @@
             "toggle"
           ];
         };
-        "Super+Alt+L" = {
+        "Super+Escape" = {
           _props.hotkey-overlay-title = "Lock the Session";
           spawn = [
             "dms"
