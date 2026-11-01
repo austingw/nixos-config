@@ -13,7 +13,16 @@
 
   programs.pi.coding-agent = {
     enable = true;
-    jail.enable = true;
+    jail = {
+      enable = true;
+      permissions =
+        combinators: with combinators; [
+          network
+          mount-cwd
+          # Allows pi to edit my pi packages repo while working in nix config
+          (rw-bind "${config.home.homeDirectory}/Projects/pi-pieces" "${config.home.homeDirectory}/Projects/pi-pieces")
+        ];
+    };
 
     environment.PI_CODING_AGENT_DIR.value = "${config.home.homeDirectory}/.config/pi";
     settings = {
