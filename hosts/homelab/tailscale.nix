@@ -25,6 +25,11 @@ let
       unit = "docker-dozzle.service";
     }
     {
+      name = "docs";
+      target = "http://127.0.0.1:3004";
+      unit = "silverbullet.service";
+    }
+    {
       name = "homepage";
       target = "http://127.0.0.1:3333";
       unit = "homepage-dashboard.service";
