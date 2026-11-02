@@ -8,6 +8,7 @@
     ./homepage.nix
     ./monitoring.nix
     ./pihole.nix
+    ./silverbullet.nix
     ./tailscale.nix
 
     ../common.nix
