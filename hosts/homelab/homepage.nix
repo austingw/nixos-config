@@ -85,7 +85,7 @@
             SilverBullet = {
               href = "https://docs.stoat-wyvern.ts.net";
               description = "Notes and docs for homelab users";
-              siteMonitor = "http://127.0.0.1:3000";
+              siteMonitor = "http://127.0.0.1:3004";
             };
           }
           {
