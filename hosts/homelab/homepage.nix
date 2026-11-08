@@ -56,16 +56,44 @@
               siteMonitor = "http://127.0.0.1:3000";
             };
           }
+          {
+            BookOrbit = {
+              href = "https://books.stoat-wyvern.ts.net";
+              description = "Library for e-books, audiobooks, etc.";
+              widget = {
+                type = "bookorbit";
+                url = "https://books.stoat-wyvern.ts.net";
+                username = "{{HOMEPAGE_VAR_BOOKORBIT_USERNAME}}";
+                password = "{{HOMEPAGE_VAR_BOOKORBIT_PASSWORD}}";
+              };
+            };
+          }
+          {
+            LinkWarden = {
+              href = "https://links.stoat-wyvern.ts.net";
+              description = "Bookmarks and what not";
+              widget = {
+                type = "linkwarden";
+                url = "https://links.stoat-wyvern.ts.net";
+                key = "{{HOMEPAGE_VAR_LINKWARDEN_KEY}}";
+              };
+            };
+          }
+          {
+            Wastebin = {
+              href = "https://pastebin.stoat-wyvern.ts.net";
+              description = "Simple pastebin";
+              siteMonitor = "http://127.0.0.1:3007";
+            };
+          }
         ];
       }
-
       {
         Monitoring = [
           {
             Beszel = {
               href = "https://beszel.stoat-wyvern.ts.net";
               description = "Host and container metrics";
-
               widget = {
                 type = "beszel";
                 url = "http://127.0.0.1:3001";
@@ -92,7 +120,6 @@
             "Uptime Kuma" = {
               href = "https://kuma.stoat-wyvern.ts.net";
               description = "Service availability";
-
               widget = {
                 type = "uptimekuma";
                 url = "http://127.0.0.1:3002";
@@ -108,7 +135,6 @@
           }
         ];
       }
-
       {
         Infrastructure = [
           {
