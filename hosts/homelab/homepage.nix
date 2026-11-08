@@ -60,9 +60,10 @@
             BookOrbit = {
               href = "https://books.stoat-wyvern.ts.net";
               description = "Library for e-books, audiobooks, etc.";
+              siteMonitor = "http://127.0.0.1:3005";
               widget = {
                 type = "bookorbit";
-                url = "https://books.stoat-wyvern.ts.net";
+                url = "http://127.0.0.1:3005";
                 username = "{{HOMEPAGE_VAR_BOOKORBIT_USERNAME}}";
                 password = "{{HOMEPAGE_VAR_BOOKORBIT_PASSWORD}}";
               };
@@ -72,11 +73,19 @@
             LinkWarden = {
               href = "https://links.stoat-wyvern.ts.net";
               description = "Bookmarks and what not";
+              siteMonitor = "http://127.0.0.1:3006";
               widget = {
                 type = "linkwarden";
-                url = "https://links.stoat-wyvern.ts.net";
+                url = "http://127.0.0.1:3006";
                 key = "{{HOMEPAGE_VAR_LINKWARDEN_KEY}}";
               };
+            };
+          }
+          {
+            SilverBullet = {
+              href = "https://docs.stoat-wyvern.ts.net";
+              description = "Notes and docs for homelab users";
+              siteMonitor = "http://127.0.0.1:3000";
             };
           }
           {
