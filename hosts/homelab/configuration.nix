@@ -3,13 +3,16 @@
 {
   imports = [
     ./aiostreams.nix
+    ./bookorbit.nix
     ./disko.nix
     ./hardware-configuration.nix
     ./homepage.nix
+    ./linkwarden.nix
     ./monitoring.nix
     ./pihole.nix
     ./silverbullet.nix
     ./tailscale.nix
+    ./wastebin.nix
 
     ../common.nix
     ../../users/austin/nixos.nix

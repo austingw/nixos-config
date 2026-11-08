@@ -30,11 +30,25 @@ let
       unit = "silverbullet.service";
     }
     {
+      name = "books";
+      target = "http://127.0.0.1:3005";
+      unit = "bookorbit.service";
+    }
+    {
+      name = "links";
+      target = "http://127.0.0.1:3006";
+      unit = "linkwarden.service";
+    }
+    {
+      name = "pastebin";
+      target = "http://127.0.0.1:3007";
+      unit = "wastebin.service";
+    }
+    {
       name = "homepage";
       target = "http://127.0.0.1:3333";
       unit = "homepage-dashboard.service";
     }
-
   ];
 
   dependencies = [
